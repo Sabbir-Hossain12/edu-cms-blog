@@ -1,433 +1,81 @@
-@php
-    use Gloudemans\Shoppingcart\Facades\Cart;$active_cat = Illuminate\Support\Facades\Request::segment(1);
-//    print_r($active_cat);
-@endphp
-
-        <!-- Start header Section -->
-<header>
-    <!-- Start header-topBar -->
-{{--    <div style="border-bottom: 1px solid var(--theme-secondary-1); padding: 10px 0;">--}}
-{{--        <div class="container">--}}
-{{--            <div class="header-topBar">--}}
-{{--                <div class="address">--}}
-{{--                    <i class='bx bx-map'></i>--}}
-{{--                    <p> {{$basic_info->store_location}}</p>--}}
-{{--                </div>--}}
-
-{{--                <div class="localization">--}}
-{{--                    <div class="language me-2">--}}
-{{--                        <i class='bx bx-chevron-down'></i>--}}
-{{--                        <select name="" class="select-form" id="">--}}
-{{--                            <option value="eng">Eng</option>--}}
-{{--                            <option value="ban">Ban</option>--}}
-{{--                            <option value="spa">Spa</option>--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="currency">--}}
-{{--                        <i class='bx bx-chevron-down'></i>--}}
-{{--                        <select name="" class="select-form" id="">--}}
-{{--                            <option value="USD">USD</option>--}}
-{{--                            <option value="TAKA">TAKA</option>--}}
-{{--                            <option value="PESO">PESO</option>--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-    <!-- Start logo-searchBar-section -->
-    <div class="logo-searchBar-section">
-        <div class="container">
-            <div class="row">
-                <div class="row align-items-center">
-                    <div class="col-lg-4">
-                        <div class="logo">
-                            <a href="{{url('/')}}">
-                                <img src="{{ asset($basic_info->black_logo) }}" style="height: 50px !important;" alt="">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="searchBar-form">
-                            <form name="form" id="searchBar-form" method="post" action="{{route('search.product')}}">
-                                @csrf
-                            <input type="text" name="search" class="form_controls"
-                                   style="height: 45px; padding-left: 42px;" placeholder="Search" id="">
-                            <i class='bx bx-search'></i>
-                            <button class="search-form">Search</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="customer-service">
-                            <i class='bx bx-phone-call'></i>
-                            <div class="support-system">
-                                <h5>Customer Services</h5>
-                                <p>{{ $basic_info->phone_1}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<header role="banner">
+    <a id="skiplinks" href="#main-content" data-ga-category="Skip links" data-ga-action="header" data-ga-label="Skip to content">Skip to content</a>
+    <section id="brand-bar" data-ga-category="Brand bar" data-ga-action="Gateway nav">
+        <a href="https://www.stanford.edu/" class="su-brand" rel="home" id="header--wordmark" data-ga-action="Wordmark">Stanford University</a>
+        <nav id="gateway" class="menu-gateway-nav-container" aria-label="Gateway navigation">
+            <div class="gateway-nav--label">Information for:</div>
+            <ul id="menu-gateway-nav" class="menu">
+                <li id="menu-item-9055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9055"><a href="https://www.stanford.edu/student-gateway/">Students</a></li>
+                <li id="menu-item-8817" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8817"><a href="https://www.stanford.edu/faculty-staff-gateway/">Faculty &#038; Staff</a></li>
+                <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="http://parents.stanford.edu/">Families</a></li>
+                <li id="menu-item-7621" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7621"><a href="https://visit.stanford.edu">Visitors</a></li>
+                <li id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18"><a href="http://alumni.stanford.edu/">Alumni</a></li>
+            </ul>
+        </nav> <button id="search-toggle" aria-controls="site-search" aria-expanded="false" data-ga-action="Search toggle">Search</button>
+        <button id="menu-toggle" aria-controls="primary-menu" aria-expanded="false" data-ga-action="Menu toggle">Menu</button>
+    </section>
+    <div id="menu-overlay" aria-hidden="true" role="presentation"></div>
+    <nav id="site-navigation" role="navigation" aria-label="Primary site navigation" data-ga-category="Top nav">
+        <div class="menu-primary-nav-container">
+            <ul id="primary-menu" class="menu">
+                <li id="menu-item-2297" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2297"><a href="https://www.stanford.edu/news/">News</a></li>
+                <li id="menu-item-2296" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2296"><a href="https://www.stanford.edu/events/">Events</a></li>
+                <li id="menu-item-106" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-106"><a href="https://www.stanford.edu/academics/">Academics</a></li>
+                <li id="menu-item-108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108"><a href="https://www.stanford.edu/research/">Research</a></li>
+                <li id="menu-item-1336" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1336"><a href="https://www.stanford.edu/health-care/">Health Care</a></li>
+                <li id="menu-item-109" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-109"><a href="https://www.stanford.edu/campus-life/">Campus Life</a></li>
+                <li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107"><a href="https://www.stanford.edu/admission/">Admission</a></li>
+                <li id="menu-item-21974" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21974"><a href="https://www.stanford.edu/about/">About</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
+    <section id="search-wrapper">
+        <div id="search-overlay" aria-hidden="true" role="presentation"></div>
+        <div id="site-search" role="search">
 
-    <!-- Start main-nav -->
-    <nav class="main-nav">
-        <div class="container">
-            <div class="row">
-                <div class="categories-menu">
-                    <i class='bx bx-menu'></i>
-
-                    <div class="category-dropdown">
-                        <h4>All Categories </h4>
-                        <i class='bx bx-chevron-down'></i>
-                    </div><!-- End. category-dropdown -->
-
-                    <div class="all-categories-show {{ $active_cat == '' ? '' : 'category_active' }}">
-                        <ul>
-                            @foreach($frontCategories as $frontCategory)
-                                <li>
-                                    <a href="{{route('product.by.category', $frontCategory->slug)}}">
-                                        <img class="rounded" src="{{ asset($frontCategory->category_img_path) }}"
-                                             alt="">
-                                        <span>{{ $frontCategory->category_name }}</span>
-                                    </a>
-                                </li>
-                            @endforeach
-
-                            <li>
-                                <a href="">
-                                    <i class='bx bx-plus'></i>
-                                    <span>View All Category</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div><!-- End. all-categories-show -->
-                </div><!-- End. categories-menu -->
-
-                <div class="menu-container">
-                    <div class="menu-list">
-                        <ul>
-                            <li>
-                                <a href="{{url('/')}}">Home</a>
-                            </li>
-                            <li>
-                                <div class="menu-dropdown">
-                                    <a href="">Shop</a>
-
-                                    <div class="catSub-show">
-                                        <ul class="category_menu">
-                                            @foreach($navCategories as $navCategory)
-                                                <li>
-                                                    <div class="subCategory_menu">
-                                                        <span>{{$navCategory->category_name}}</span>
-
-                                                        <ul class="">
-                                                            @foreach($navCategory->subCategories as $subCategory)
-                                                                <li>
-                                                                    <a href="{{route('product.by.subcategory', $subCategory->slug)}}">{{$subCategory->subcategory_name}}</a>
-                                                                </li>
-
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                </li>
-
-                                            @endforeach
-                                        </ul>
-
-                                        <a href="#" class="all-category-views">View All Shop <i
-                                                    class="fa-solid fa-arrow-right ms-2"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="">Blog</a>
-                            </li>
-                            <li>
-                                <a href="{{route('about')}}">About Us</a>
-                            </li>
-                            <li>
-                                <a href="{{route('contact')}}">Contact Us</a>
-                            </li>
-                            @auth()
-                                <li>
-                                    <a href="{{route('user.dashboard')}}">Dashboard</a>
-                                </li>
-                            @endauth
-
-                        </ul>
-                    </div><!-- End. menu-list -->
-
-                    <div class="menu-right">
-                        <ul>
-                            <li>
-                                <a href="{{route('wishlist.index')}}" class="item-count">
-                                    <i class='bx bx-heart'></i>
-                                    <span>0</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="item-count" id="shopping-cart">
-                                    <i class='bx bx-shopping-bag'></i>
-                                    <span class="cart-count">0</span>
-                                </a>
-                            </li>
-                            @guest()
-                                <li class="accounts-menu">
-                                    <a href="javascript:;">
-                                        <i class='bx bx-user'></i>
-                                    </a>
-
-                                    <div class="accounts-menu-list">
-                                        <ul>
-                                            <li>
-                                                <a href="{{route('login')}}">Login</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{route('register')}}">Register</a>
-                                            </li>
-                                        </ul>
-                                    </div><!-- End. accounts-menu-list -->
-                                </li>
-                            @endguest
-
-                            {{-- Authenticated User   --}}
-                            @auth()
-                                <li class="accounts-menu">
-                                    <a href="javascript:;">
-                                        <i class='bx bxs-user'></i>
-                                    </a>
-
-                                    <div class="accounts-menu-list">
-                                        <ul>
-                                            <li>
-                                                <a href="{{route('user.dashboard')}}">Dashboard</a>
-                                            </li>
-                                            <li>
-                                                <form method="POST" action="{{ route('logout') }}">
-                                                    @csrf
-                                                    <button type="submit" class="btn">Logout</button>
-                                                </form>
-                                            </li>
-                                        </ul>
-                                    </div><!-- End. accounts-menu-list -->
-                                </li>
-
-                            @endauth
-                        </ul>
-                    </div><!-- End. menu-right -->
+            <form action="https://www.stanford.edu/search" method="get" id="search-form" accept-charset="UTF-8">
+                <label for="search-field" class="sr-only-text">Search term</label>
+                <input id="search-field" type="text" name="q" title="Search string" class="input-medium" placeholder="    Search Stanford websites" value="" size="15" maxlength="128" />
+                <div id="search-type">
+                    <h2>Search Stanford:</h2>
+                    <input id="search-web" name="search_type" type="radio" value="web" checked="checked" class="radio-search" />
+                    <label for="search-web">Web</label>
+                    <input id="search-people" name="search_type" type="radio" value="people" class="radio-search" />
+                    <label for="search-people">People</label>
                 </div>
-            </div>
+                <button id="search-btn" type="submit" name="submit" aria-label="Search" formmethod="get"><i class="fa fa-globe"></i>&nbsp;Search Web</button>
+            </form>
+            <p>
+                Other ways to search:
+                <a href="https://campus-map.stanford.edu/">Map</a>
+                <a href="https://profiles.stanford.edu/">Profiles</a>
+            </p>
         </div>
-    </nav><!-- End. menu-container -->
+    </section>
 
-    <!-- cart sidebar section -->
-    <div class="cart-sidebar-overlay"></div>
-    <div class="cart-sidebar">
-        <i class='bx bx-x' id="cart-close"></i>
-        <div class="cart-titles">
-            <h3>Shopping Card (<span class="cart-count">2</span>)</h3>
-        </div>
-
-        <div class="cart-item-list" id="cartData">
-            
-
-        </div>
-
-        <div class="cart-buttons">
-            <div class="cart-price">
-                <p> <span class="cart-count">2</span> Product</p>
-                <span id="cart-subtotal">$26.00</span>
-            </div>
-
-            <a href="{{route('checkout.index')}}" class="btn btns default_btn mb-2 f-w">Checkout</a>
-            <a href="{{route('cart.index')}}" class="btn btns load_more_btn mb-2 f-w">Go To Cart</a>
-        </div>
-    </div>
-</header><!-- End. header -->
-
-<!-- Start header responsive Section -->
-<div class="responsive-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="header-topBar">
-                    <div class="address">
-                        <i class='bx bx-map'></i>
-                        <p>{{$basic_info->store_location}}</p>
-                    </div>
-
-                    <div class="localization">
-                        <div class="language me-2">
-                            <i class='bx bx-chevron-down'></i>
-                            <select name="" class="select-form" id="">
-                                <option value="eng">Eng</option>
-                                <option value="ban">Ban</option>
-                                <option value="spa">Spa</option>
-                            </select>
-                        </div>
-
-                        <div class="currency">
-                            <i class='bx bx-chevron-down'></i>
-                            <select name="" class="select-form" id="">
-                                <option value="USD">USD</option>
-                                <option value="TAKA">TAKA</option>
-                                <option value="PESO">PESO</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="header-bottom">
-                    <div class="sidebar-icon">
-                        <i class="fa-solid fa-bars" id="hamBurger-icon"></i>
-                        <img src="{{ asset($basic_info->black_logo) }}" style="height: 50px" alt="">
-                    </div>
-
-                    <!-- <div class="header-main"> -->
-                    <div class="header-right">
-                        <div class="menu-right">
-                            <ul>
-                                <li>
-                                    <a href="" class="item-count">
-                                        <i class='bx bx-heart'></i>
-                                        <span>0</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" class="item-count">
-                                        <i class='bx bx-shopping-bag'></i>
-                                        <span>0</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div><!-- End. menu-right -->
-                    </div>
-                    <!-- </div> -->
-                </div>
-            </div>
-        </div>
-
-        <!-- End. responsive-header-sidebar -->
-        <div class="header-sidebar-overlay"></div>
-
-        <div class="responsive-header-sidebar">
-            <div class="mobile-menu-close">
-                <i class='bx bx-x'></i>
-            </div>
-
-            <div class="responsive-topBar">
-                <img src="{{ asset($basic_info->black_logo) }}" style="height: 50px" alt="">
-            </div>
-
-            <div class="mobile-search-form">
-                <input type="text" class="mobile-form" placeholder="Search for item....">
-                <i class='bx bx-search'></i>
-            </div>
-
-            <div class="menu-select">
-                <div class="tab-menu">
-                    <ul>
-                        <li class="active_menu">Menu</li>
-                        <li>Categories</li>
-                    </ul>
-                </div>
-
-                <div class="menu-content active_menu">
-                    <ul class="static-menu-list">
-                        <li>
-                            <a href="">Home</a>
-                        </li>
-                        <li>
-                            <a href="">Shop</a>
-                        </li>
-                        <li>
-                            <a href="">Blog</a>
-                        </li>
-                        <li>
-                            <a href="">About Us</a>
-                        </li>
-                        <li>
-                            <a href="">Contact Us</a>
-                        </li>
-                        <li>
-                            <a href="">Log In</a> / <a href="">Sign Up</a>
-                        </li>
-                    </ul>
-
-                    <div class="social-media-link">
-                        <h4>Follow Us:</h4>
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa-brands fa-x-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa-brands fa-pinterest-p"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="menu-content">
-                    <ul class="static-menu-list">
-                        <li>
-                            <a href="">Chicken & Meat</a>
-                        </li>
-                        F
-                        <li>
-                            <a href="">Vegetables</a>
-                        </li>
-                        <li>
-                            <a href="">Fruits</a>
-                        </li>
-                        <li>
-                            <a href="">Snakes</a>
-                        </li>
-                        <li>
-                            <a href="">Drinks & Beverage</a>
-                        </li>
-                        <li>
-                            <a href="">Butter & Cream</a>
-                        </li>
-                        <li>
-                            <a href="">Sweet & Yogurt</a>
-                        </li>
-                        <li>
-                            <a href="">Electronics</a>
-                        </li>
-                        <li>
-                            <a href="">Stationeries</a>
-                        </li>
-                        <li>
-                            <a href="">Cloths</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div><!-- End. responsive-header -->
+    <section class="panel-collection" data-modular-content-collection>
 
 
+        <section class="panel theme--choco" data-type="splash-image" id="splash-screen" data-modular-content data-js="panel" data-index="0" data-scroll-type="parallax" data-logo-loc-v="middle" data-logo-loc-h="center" data-ga-category="Splash Panel">
+
+            <p id="splash--wordmark" class="su-brand splash__wordmark--middle splash__wordmark--center">Stanford</p>
+            <p id="splash--scroller"><a href="#main-content" data-ga-action="Splash screen scroller">Explore Stanford</a></p>
+
+            <picture aria-hidden="true" tabindex="-1">
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                <source srcset="https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-scaled.jpg 2560w, https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-767x510.jpg 767w, https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-1023x681.jpg 1023w, https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-768x511.jpg 768w, https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-1536x1022.jpg 1536w, https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-2048x1362.jpg 2048w, https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-575x382.jpg 575w, https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-1499x997.jpg 1499w, https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-600x399.jpg 600w, https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-500x333.jpg 500w"
+                />
+                <!--[if IE 9]></video><![endif]-->
+                <img class="bg-img" role="presentation" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+            </picture>
+
+
+        </section>
+        <!-- panel Splash Screen -->
+
+
+
+    </section>
+    <!-- panel-collection -->
+
+</header>

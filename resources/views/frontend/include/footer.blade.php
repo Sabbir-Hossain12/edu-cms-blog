@@ -1,126 +1,122 @@
-    <!-- start footer section -->
-    <footer>
-        <div class="container">
-            <div class="row widget">
-                <div class="col-12 col-lg-3">
-                    <div class="widget-about">
-                        <img src="{{ asset($basic_info->light_logo) }}" style=" height: 60px" class="footer-logo" alt="Footer Logo">
-                        <p>{{$basic_info->short_desc}}</p>
-                        
-                        <div class="widget_contacts">
-                            <div class="widget_contacts_div">
-                                <a href="mailto:hnazmul748@gmail.com">{{$basic_info->email}}</a>
-                                <span>or</span>
-                                <a href="tel:01868512081">{{$basic_info->phone_1}}</a>
-                            </div><!-- End .widget_contacts_div -->
-                        </div><!-- End .widget_contacts -->
+<footer data-ga-category="Footer">
+    <section id="footer__pre-footer" data-ga-action="Pre-footer">
+        <div class="social">
+            <ul data-ga-action="Social media">
+                <li><a title="Facebook" class="xsu-link" data-ga-label="Facebook" href="https://www.facebook.com/stanford"><span class="fa fa-facebook-square" aria-hidden="true"></span><span class="sr-only-text">Facebook</span></a></li>
+                <li><a title="Twitter" class="xsu-link" data-ga-label="Twitter" href="https://twitter.com/stanford"><span class="fa fa-twitter" aria-hidden="true"></span><span class="sr-only-text">Twitter</span></a></li>
+                <li><a title="Instagram" class="xsu-link" data-ga-label="Instagram" href="https://www.instagram.com/stanford/"><span class="fa fa-instagram" aria-hidden="true"></span><span class="sr-only-text">Instagram</span></a></li>
+                <li><a title="LinkedIn" class="xsu-link" data-ga-label="LinkedIn" href="https://www.linkedin.com/school/stanford-university/"><span class="fa fa-linkedin" aria-hidden="true"></span><span class="sr-only-text">LinkedIn</span></a></li>
+                <li><a title="YouTube" class="xsu-link" data-ga-label="YouTube" href="https://www.youtube.com/stanford"><span class="fa fa-youtube-play" aria-hidden="true"></span><span class="sr-only-text">YouTube</span></a></li>
+                <li><a title="iTunes U" class="xsu-link" data-ga-label="iTunes U" href="https://podcasts.apple.com/us/artist/stanford/1280771285"><span class="fa fa-apple" aria-hidden="true"></span><span class="sr-only-text">iTunes U</span></a></li>
+            </ul>
+        </div>
+    </section>
 
-                    </div><!-- End .widget about-widget -->
+    <section id="footer__content" data-ga-action="Fat footer">
+        <div>
+            <div>
+                <div>
+                    <h3>Schools</h3>
+                    <ul>
+                        <li><a href="https://www.gsb.stanford.edu/">Business</a></li>
+                        <li><a href="https://ed.stanford.edu/">Education</a></li>
+                        <li><a href="https://engineering.stanford.edu/">Engineering</a></li>
+                        <li><a href="https://humsci.stanford.edu/">Humanities & Sciences</a></li>
+                        <li><a href="https://law.stanford.edu/">Law</a></li>
+                        <li><a href="https://med.stanford.edu/">Medicine</a></li>
+                        <li><a href="https://sustainability.stanford.edu/">Sustainability</a></li>
+                    </ul>
                 </div>
-
-                <div class="col-6 col-md-6 col-lg-2">
-                    <div class="widget-container">
-                        <h4 class="widget-title">My Account</h4>
-                        <!-- End .widget-title -->
-                        <ul class="widget-list">
-                            <li>
-                                <a href="">My Account</a>
-                            </li>
-                            <li>
-                                <a href="">Order History</a>
-                            </li>
-                            <li>
-                                <a href="">Shopping Cart</a>
-                            </li>
-                            <li>
-                                <a href="">Wishlist</a>
-                            </li>
-                        </ul>
-                        <!-- End .widget-list -->
-                    </div>
-                    <!-- End .widget-container -->
-                </div>
-
-                <div class="col-6 col-md-6 col-lg-2">
-                    <div class="widget-container">
-                        <h4 class="widget-title">Helps</h4>
-                        <!-- End .widget-title -->
-                        <ul class="widget-list">
-                            <li>
-                                <a href="">Contact</a>
-                            </li>
-                            <li>
-                                <a href="">Faqs</a>
-                            </li>
-                            <li>
-                                <a href="">Terms & Condition</a>
-                            </li>
-                            <li>
-                                <a href="">Privacy Policy</a>
-                            </li>
-                        </ul>
-                        <!-- End .widget-list -->
-                    </div>
-                    <!-- End .widget-container -->
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-6 col-lg-2">
-                    <div class="widget-container">
-                        <h4 class="widget-title">Proxy</h4>
-                        <!-- End .widget-title -->
-                        <ul class="widget-list">
-                            <li>
-                                <a href="">About</a>
-                            </li>
-                            <li>
-                                <a href="">Shop</a>
-                            </li>
-                            <li>
-                                <a href="">Product</a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Track Order
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- End .widget-list -->
-                    </div>
-                    <!-- End .widget-container -->
-                </div>
-
-                <div class="col-6 col-sm-6 col-md-6 col-lg-3">
-                    <div class="widget-container">
-                        <h4 class="widget-title">Social Links</h4>
-                        <!-- End .widget-title -->
-                        <ul class="social-link">
-                            <li>
-                            <a href="{{$basic_info->fb_link}}">    <i class="fa-brands fa-facebook-f social-active"></i></a>
-                            </li>
-                            <li>
-                                <a href="{{$basic_info->x_link}}">      <i class="fa-brands fa-x-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="{{$basic_info->p_link}}">   <i class="fa-brands fa-pinterest-p"></i></a>
-                            </li>
-                            <li>
-                                <a href="{{$basic_info->insta_link}}">   <i class="fa-brands fa-instagram"></i></a>
-                            </li>
-                        </ul>
-                        <!-- End .social-link -->
-                    </div>
-                    <!-- End .widget-container -->
+                <div>
+                    <h3>Academics</h3>
+                    <ul>
+                        <li><a href="https://majors.stanford.edu/majors">Undergraduate Majors</a></li>
+                        <li><a href="https://gradadmissions.stanford.edu/explore-programs">Graduate Programs</a></li>
+                    </ul>
+                    <h3>Research</h3>
+                    <ul>
+                        <li><a href="/list/research/">Research Centers A&nbsp;<span aria-hidden="true">-</span><span class="sr-only-text"> to </span>&nbsp;Z</a></li>
+                        <li><a href="http://library.stanford.edu/">Libraries</a></li>
+                    </ul>
                 </div>
             </div>
-            <!-- End. row widget-->
-
-            <div class="row">
-                <div class="col-lg-12">
-                <div class="footer_copyright">
-                    <p> {{env('APP_NAME')}} eCommerce © 2024. All Rights Reserved</p>
-                    <img src="{{ asset('public/frontend/assets/images/footer_image/Payment.png') }}" alt="">
+        </div>
+        <div>
+            <div>
+                <div>
+                    <h3>Health Care</h3>
+                    <ul>
+                        <li><a href="https://stanfordhealthcare.org/">Stanford Health Care</a></li>
+                        <li><a href="https://www.stanfordchildrens.org/">Stanford Children's Health</a></li>
+                    </ul>
+                    <h3>Online Learning</h3>
+                    <ul>
+                        <li><a href="https://online.stanford.edu/">Stanford Online</a></li>
+                    </ul>
                 </div>
-                </div><!-- End. col-lg-12 -->
-            </div><!-- End. row --> 
-        </div><!-- End. container --> 
-    </footer><!-- End. footer --> 
+                <div>
+                    <h3>About Stanford</h3>
+                    <ul>
+                        <li><a href="https://facts.stanford.edu/">Facts</a></li>
+                        <li><a href="/about/history">History</a></li>
+                        <li><a href="https://wasc.stanford.edu/">Accreditation</a></li>
+                    </ul>
+                    <h3>Admission</h3>
+                    <ul>
+                        <li><a href="https://admission.stanford.edu/">Undergraduate</a></li>
+                        <li><a href="https://gradadmissions.stanford.edu">Graduate</a></li>
+                        <li><a href="https://financialaid.stanford.edu/">Financial Aid</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://campus-map.stanford.edu/">Campus Map</a></li>
+                        <li><a href="https://community.stanford.edu/">Community Engagement</a></li>
+                        <li><a href="https://stanfordwho.stanford.edu/">Directory</a></li>
+                        <li><a href="https://profiles.stanford.edu/">Stanford Profiles</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <ul class="connect">
+            <li><a href="/admission">Applying</a></li>
+            <li><a href="https://visit.stanford.edu/">Visiting</a></li>
+            <li><a href="https://giving.stanford.edu/">Giving</a></li>
+            <li><a href="https://careersearch.stanford.edu/">Careers</a></li>
+            <li><a href="http://facultypositions.stanford.edu/">Faculty Positions</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </section>
+
+    <section id="footer__global-footer" data-ga-action="Global footer">
+        <div id="global-footer__brand">
+            <a href="/" class="su-brand">Stanford<br />University</a>
+        </div>
+        <nav id="global-footer__nav" aria-label="global footer menu">
+            <ul id="global-links">
+                <li><a href="/">Stanford Home</a></li>
+                <li><a href="https://visit.stanford.edu/plan/">Maps &amp; Directions</a></li>
+                <li><a href="/search/">Search Stanford</a></li>
+                <li><a href="https://emergency.stanford.edu/">Emergency Info</a></li>
+            </ul>
+            <ul id="global-policy-links">
+                <li><a href="/site/terms/" title="Terms of use for sites">Terms of Use</a></li>
+                <li><a href="/site/privacy" title="Privacy and cookie policy">Privacy</a></li>
+                <li><a href="https://uit.stanford.edu/security/copyright-infringement" title="Report alleged copyright infringement">Copyright</a></li>
+                <li><a href="https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4" title="Ownership and use of Stanford trademarks and images">Trademarks</a></li>
+                <li><a href="https://studentservices.stanford.edu/more-resources/student-policies/non-academic/non-discrimination" title="Non-discrimination policy">Non-Discrimination</a></li>
+                <li><a href="/site/accessibility/" title="Report web accessibility issues">Accessibility</a></li>
+            </ul>
+        </nav>
+        <div id="global-footer__info">
+            <p class="vcard"><span aria-hidden="true">©</span><span class="sr-only-text">Copyright </span>
+                <span class="fn org">Stanford University</span>. &nbsp;
+                <span class="adr">
+          <span class="locality">Stanford</span>,
+                    <span class="region">California</span>
+                    <span class="postal-code">94305</span>.</span>
+            </p>
+        </div>
+    </section>
+</footer>

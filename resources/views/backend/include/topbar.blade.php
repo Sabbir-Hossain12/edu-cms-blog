@@ -4,22 +4,23 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <a href="" class="logo logo-dark">
-                                <span class="logo-sm">
-                                    
-{{--                                    <img src="{{asset($basic_info->black_logo)}}" alt="" width="80%" height="24">--}}
-                                </span>
+                   <span class="logo-sm">
+{{--                     <img src="{{asset($basic_info->black_logo)}}" alt="" width="80%" height="24">--}}
+                   </span>
+                    
                     <span class="logo-lg">
-                                    <img src="{{asset($basic_info->black_logo)}}" alt="" width="100%" height="50"> 
-                                </span>
+{{--                   <img src="{{asset($basic_info->black_logo)}}" alt="" width="100%" height="50"> --}}
+                    </span>
                 </a>
 
                 <a href="" class="logo logo-light">
-                                <span class="logo-sm">
-{{--                                    <img src="{{asset($basic_info->light_logo)}}" alt="" height="24">--}}
-                                </span>
+                    <span class="logo-sm">
+{{--                  <img src="{{asset($basic_info->light_logo)}}" alt="" height="24">--}}
+                    </span>
+                    
                     <span class="logo-lg">
-                                    <img src="{{asset($basic_info->light_logo)}}" alt="" height="24"> <span class="logo-txt">Minia</span>
-                                </span>
+{{--                   <img src="{{asset($basic_info->light_logo)}}" alt="" height="24"> <span class="logo-txt">Minia</span>--}}
+                    </span>
                 </a>
             </div>
 
@@ -37,19 +38,20 @@
         </div>
 
         <div class="d-flex">
-
             <div class="dropdown d-inline-block d-lg-none ms-2">
                 <button type="button" class="btn header-item" id="page-header-search-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i data-feather="search" class="icon-lg"></i>
                 </button>
+                
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                      aria-labelledby="page-header-search-dropdown">
 
                     <form class="p-3">
                         <div class="form-group m-0">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search ..." aria-label="Search Result">
+                                <input type="text" class="form-control" placeholder="Search ..."
+                                       aria-label="Search Result">
 
                                 <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
                             </div>
@@ -58,23 +60,21 @@
                 </div>
             </div>
 
-       
-
             <div class="dropdown d-none d-sm-inline-block">
                 <button type="button" class="btn header-item" id="mode-setting-btn">
                     <i data-feather="moon" class="icon-lg layout-mode-dark"></i>
                     <i data-feather="sun" class="icon-lg layout-mode-light"></i>
                 </button>
             </div>
-
-
-
+            
             <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item noti-icon position-relative" id="page-header-notifications-dropdown"
+                <button type="button" class="btn header-item noti-icon position-relative"
+                        id="page-header-notifications-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i data-feather="bell" class="icon-lg"></i>
                     <span class="badge bg-danger rounded-pill">5</span>
                 </button>
+                
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                      aria-labelledby="page-header-notifications-dropdown">
                     <div class="p-3">
@@ -91,13 +91,15 @@
                         <a href="#!" class="text-reset notification-item">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
-                                    <img src="{{asset('public/backend')}}/assets/images/users/avatar-3.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="{{asset('public/backend')}}/assets/images/users/avatar-3.jpg"
+                                         class="rounded-circle avatar-sm" alt="user-pic">
                                 </div>
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1">James Lemire</h6>
                                     <div class="font-size-13 text-muted">
                                         <p class="mb-1">It will seem like simplified English.</p>
-                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>1 hour ago</span></p>
+                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>1 hour ago</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -118,6 +120,10 @@
                                 </div>
                             </div>
                         </a>
+                        <a href="@if($php=='js') 'selected' @endif">
+                            {{$lafted->name}}
+                        </a>
+                        
                         <a href="#!" class="text-reset notification-item">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 avatar-sm me-3">
@@ -138,13 +144,16 @@
                         <a href="#!" class="text-reset notification-item">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
-                                    <img src="{{asset('public/backend')}}/assets/images/users/avatar-6.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="{{asset('public/backend')}}/assets/images/users/avatar-6.jpg"
+                                         class="rounded-circle avatar-sm" alt="user-pic">
                                 </div>
+                                
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1">Salena Layfield</h6>
                                     <div class="font-size-13 text-muted">
                                         <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
-                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>1 hour ago</span></p>
+                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>1 hour ago</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -158,27 +167,34 @@
                 </div>
             </div>
 
-          
 
             <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown"
+                <button type="button" class="btn header-item bg-soft-light border-start border-end"
+                        id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{{asset('public/backend')}}/assets/images/users/avatar-1.jpg"
+                    <img class="rounded-circle header-profile-user"
+                         src="{{asset('backend')}}/assets/images/users/avatar-1.jpg"
                          alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ms-1 fw-medium">{{Auth::guard('admin')->user()->name ?? ''}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
+                
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="{{route('admin.profile')}}"><i class="fa-solid fa-user  font-size-16 align-middle me-1"></i> Profile</a>
+                    <a class="dropdown-item" href="{{route('admin.profile')}}"><i
+                                class="fa-solid fa-user  font-size-16 align-middle me-1"></i> Profile
+                    </a>
+                    
                     <div class="dropdown-divider"></div>
+                    
                     <form method="post" action="{{route('admin.logout')}}">
                         @csrf
-                    <button type="submit" class="dropdown-item" ><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</button>
+                        <button type="submit" class="dropdown-item"><i
+                                    class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout
+                        </button>
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 </header>
