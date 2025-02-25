@@ -2,13 +2,25 @@
 
 
 //Admin Auth Routes
+use App\Http\Controllers\Backend\About\AboutController;
+use App\Http\Controllers\Backend\Academics\AcademicsController;
 use App\Http\Controllers\Backend\Admin\AdminController;
+use App\Http\Controllers\Backend\Admission\AdmissionController;
+use App\Http\Controllers\Backend\Athletics\AthleticsController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\Auth\RegisterController;
+use App\Http\Controllers\Backend\CampusLife\CampusLifeController;
 use App\Http\Controllers\Backend\Dashboard\DashboardController;
+use App\Http\Controllers\Backend\Event\EventController;
+use App\Http\Controllers\Backend\Faculty\FacultyController;
+use App\Http\Controllers\Backend\HealthCare\HealthCareController;
+use App\Http\Controllers\Backend\News\NewsController;
 use App\Http\Controllers\Backend\Page\PageController;
 use App\Http\Controllers\Backend\Profile\ProfileController;
+use App\Http\Controllers\Backend\Research\ResearchController;
+use App\Http\Controllers\Backend\School\SchoolController;
 use App\Http\Controllers\Backend\Setting\SettingController;
+use App\Http\Controllers\Backend\Student\StudentController;
 use App\Http\Controllers\Backend\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -59,7 +71,44 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/pages', PageController::class)->names('admin.pages');
     Route::post('/change-pages-status', [PageController::class, 'changePagesStatus']);
     
+    
+    //_______About________//
+    Route::resource('/abouts', AboutController::class)->names('admin.abouts');
+    
+    //______News__________//
+    Route::resource('/news', NewsController::class)->names('admin.news');
+    
+    //_______Academics__________//
+    Route::resource('/academics', AcademicsController::class )->names('admin.academics');
+    
+    //_______School___________//
+    Route::resource('/schools', SchoolController::class)->names('admin.schools');
+    
+    //________Faculties_______//
+    Route::resource('/faculties', FacultyController::class)->names('admin.faculties');
+    
+    //______ Research _______//
+    Route::resource('/researches', ResearchController::class)->names('admin.researches');
+    
+    //______Events___________//
+    Route::resource('/events', EventController::class)->names('admin.events');
+    
+    //______Health Care______//
+    Route::resource('/health_cares', HealthCareController::class)->names('admin.health_cares');
+    
+    //______Students_________//
+    Route::resource('/students', StudentController::class)->names('admin.students');
+    
+    //_______Campus Life_______//
+    Route::resource('/campus_lives', CampusLifeController::class)->names('admin.campus_lives');
+    
+    //_______Athletics_______//
+    Route::resource('/athletics', AthleticsController::class)->names('admin.athletics');
+    
+    //_______Admission_______//
+    Route::resource('/admissions', AdmissionController::class)->names('admin.admissions');
+    
     //______ Settings _____//
-    Route::resource('/settings', SettingController::class)->names('admin.basic');
+    Route::resource('/settings', SettingController::class)->names('admin.settings');
     
 });

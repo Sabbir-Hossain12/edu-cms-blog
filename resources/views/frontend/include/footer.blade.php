@@ -100,6 +100,7 @@
                 <li><a href="/search/">Search Stanford</a></li>
                 <li><a href="https://emergency.stanford.edu/">Emergency Info</a></li>
             </ul>
+            
             <ul id="global-policy-links">
                 <li><a href="/site/terms/" title="Terms of use for sites">Terms of Use</a></li>
                 <li><a href="/site/privacy" title="Privacy and cookie policy">Privacy</a></li>
@@ -113,7 +114,7 @@
             <p class="vcard"><span aria-hidden="true">©</span><span class="sr-only-text">Copyright </span>
                 <span class="fn org">Stanford University</span>. &nbsp;
                 <span class="adr">
-          <span class="locality">Stanford</span>,
+                <span class="locality">Stanford</span>,
                     <span class="region">California</span>
                     <span class="postal-code">94305</span>.</span>
             </p>

@@ -120,9 +120,9 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="@if($php=='js') 'selected' @endif">
-                            {{$lafted->name}}
-                        </a>
+{{--                        <a href="@if($php=='js') 'selected' @endif">--}}
+{{--                            {{$lafted->name}}--}}
+{{--                        </a>--}}
                         
                         <a href="#!" class="text-reset notification-item">
                             <div class="d-flex">

@@ -27,6 +27,24 @@
                         <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
+
+                <li class="">
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa-solid fa-home"></i>
+                        <span data-key="t-dashboard">About Section</span>
+                    </a>
+
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{route('admin.abouts.index')}}">
+                                <span data-key="t-calendar">About Management</span>
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+                </li>
                 
 
                 <li>
@@ -36,7 +54,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('admin.basic.index')}}">
+                            <a href="{{route('admin.settings.index')}}">
                                 <span data-key="t-calendar">Basic Info</span>
                             </a>
                         </li>

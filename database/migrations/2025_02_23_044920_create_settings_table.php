@@ -36,6 +36,11 @@ return new class extends Migration
             $table->string('healthcare_desc')->nullable();
             $table->string('campuslife_desc')->nullable();
             $table->string('athletics_desc')->nullable();
+            
+            $table->string('meta_title')->nullable();
+            $table->text('meta_desc')->nullable();
+            $table->text('meta_keywords')->nullable();
+            $table->text('meta_img')->nullable();
             $table->timestamps();
         });
     }
