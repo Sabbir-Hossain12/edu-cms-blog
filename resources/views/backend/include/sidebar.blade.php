@@ -89,6 +89,22 @@
                     </ul>
                 </li>
                 
+                {{--  Events  --}}
+                <li class="">
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa-solid fa-home"></i>
+                        <span data-key="t-dashboard">Events</span>
+                    </a>
+
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{route('admin.events.index')}}">
+                                <span data-key="t-calendar">Events Categories</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">

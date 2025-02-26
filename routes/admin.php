@@ -84,7 +84,11 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/academics', AcademicsController::class )->names('admin.academics');
     Route::resource('/academic-categories', AcademicsCategoryController::class )->names('admin.academic-categories');
     Route::post('/academics-category-change-status',[AcademicsCategoryController::class,'changeAcademicCategoryStatus'])->name('admin.academic-categories.status');
-    
+
+    //______Events___________//
+    Route::resource('/events', EventController::class)->names('admin.events');
+    Route::post('/events-change-status',[EventController::class,'changeEventStatus'])->name('admin.events.status');
+
     //_______School___________//
     Route::resource('/schools', SchoolController::class)->names('admin.schools');
     
@@ -94,8 +98,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     //______ Research _______//
     Route::resource('/researches', ResearchController::class)->names('admin.researches');
     
-    //______Events___________//
-    Route::resource('/events', EventController::class)->names('admin.events');
+
     
     //______Health Care______//
     Route::resource('/health_cares', HealthCareController::class)->names('admin.health_cares');

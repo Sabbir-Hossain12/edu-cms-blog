@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('short_desc')->nullable();
             $table->text('long_desc')->nullable();
             $table->string('link')->nullable();
+            $table->string('event_time')->nullable();
             $table->tinyInteger('status')->default(1)->comment('1=active, 0=inactive');
             $table->timestamps();
         });
