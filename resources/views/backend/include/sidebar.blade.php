@@ -27,7 +27,7 @@
                         <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
-
+                {{--About--}}
                 <li class="">
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="fa-solid fa-home"></i>
@@ -38,6 +38,49 @@
                         <li>
                             <a href="{{route('admin.abouts.index')}}">
                                 <span data-key="t-calendar">About Management</span>
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+                </li>
+                {{--End About--}}
+
+                <li class="">
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa-solid fa-home"></i>
+                        <span data-key="t-dashboard">Campus News</span>
+                    </a>
+
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{route('admin.news.index')}}">
+                                <span data-key="t-calendar">News Management</span>
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa-solid fa-home"></i>
+                        <span data-key="t-dashboard">Academics</span>
+                    </a>
+
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{route('admin.academics.index')}}">
+                                <span data-key="t-calendar">Academics</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{route('admin.academic-categories.index')}}">
+                                <span data-key="t-calendar">Category</span>
                             </a>
                         </li>
 

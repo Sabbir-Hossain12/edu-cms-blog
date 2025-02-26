@@ -3,6 +3,7 @@
 
 //Admin Auth Routes
 use App\Http\Controllers\Backend\About\AboutController;
+use App\Http\Controllers\Backend\Academics\AcademicsCategoryController;
 use App\Http\Controllers\Backend\Academics\AcademicsController;
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admission\AdmissionController;
@@ -77,9 +78,12 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     
     //______News__________//
     Route::resource('/news', NewsController::class)->names('admin.news');
+    Route::post('/news-change-status',[NewsController::class,'changeNewsStatus'])->name('admin.news.status');
     
-    //_______Academics__________//
+    //_______Academics + Category __________//
     Route::resource('/academics', AcademicsController::class )->names('admin.academics');
+    Route::resource('/academic-categories', AcademicsCategoryController::class )->names('admin.academic-categories');
+    Route::post('/academics-category-change-status',[AcademicsCategoryController::class,'changeAcademicCategoryStatus'])->name('admin.academic-categories.status');
     
     //_______School___________//
     Route::resource('/schools', SchoolController::class)->names('admin.schools');

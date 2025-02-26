@@ -22,7 +22,6 @@ return new class extends Migration
             $table->text('video_link')->nullable();
             $table->string('category_name')->nullable();
             $table->tinyInteger('status')->default(1)->comment('1=active, 0=inactive');
-
             $table->timestamps();
         });
     }

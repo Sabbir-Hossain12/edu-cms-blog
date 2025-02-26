@@ -79,6 +79,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+        
         $new = new CampusNew();
         $new->title = $request->title;
         $new->short_desc = $request->short_desc;
@@ -90,22 +91,22 @@ class NewsController extends Controller
         if ($request->hasFile('thumbnail_img')) {
             $file = $request->file('thumbnail_img');
             $filename = time() .uniqid(). '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('backend/upload/news'), $filename);
-            $new->thumbnail_img = $filename;
+            $file->move(public_path('backend/upload/news/'), $filename);
+            $new->thumbnail_img ='backend/upload/news/'. $filename;
         }
         
         if ($request->hasFile('main_img')) {
             $file = $request->file('main_img');
             $filename = time() .uniqid(). '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('backend/upload/news'), $filename);
-            $new->main_img = $filename;
+            $file->move(public_path('backend/upload/news/'), $filename);
+            $new->main_img = 'backend/upload/news/'. $filename;
         }
         
         if ($request->hasFile('video_thumbnail_img')) {
             $file = $request->file('video_thumbnail_img');
             $filename = time() .uniqid(). '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('backend/upload/news'), $filename);
-            $new->video_thumbnail_img = $filename;
+            $file->move(public_path('backend/upload/news/'), $filename);
+            $new->video_thumbnail_img ='backend/upload/news/'. $filename;
         }
         
         $new->save();
@@ -127,7 +128,12 @@ class NewsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $new = CampusNew::find($id);
+        if ($new) {
+            return response()->json(['message' => 'success', 'data' => $new], 200);
+        }
+
+        return response()->json(['message' => 'failed'], 400);
     }
 
     /**
@@ -135,6 +141,7 @@ class NewsController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        
         $new = CampusNew::find($id);
         $new->title = $request->title;
         $new->short_desc = $request->short_desc;
@@ -152,8 +159,8 @@ class NewsController extends Controller
             
             $file = $request->file('thumbnail_img');
             $filename = time() .uniqid(). '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('backend/upload/news'), $filename);
-            $new->thumbnail_img = $filename;
+            $file->move(public_path('backend/upload/news/'), $filename);
+            $new->thumbnail_img ='backend/upload/news/'. $filename;
         }
 
         if ($request->hasFile('main_img')) {
@@ -163,8 +170,8 @@ class NewsController extends Controller
             }
             $file = $request->file('main_img');
             $filename = time() .uniqid(). '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('backend/upload/news'), $filename);
-            $new->main_img = $filename;
+            $file->move(public_path('backend/upload/news/'), $filename);
+            $new->main_img = 'backend/upload/news/'. $filename;
         }
 
         if ($request->hasFile('video_thumbnail_img')) {
@@ -175,8 +182,8 @@ class NewsController extends Controller
             }
             $file = $request->file('video_thumbnail_img');
             $filename = time() .uniqid(). '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('backend/upload/news'), $filename);
-            $new->video_thumbnail_img = $filename;
+            $file->move(public_path('backend/upload/news/'), $filename);
+            $new->video_thumbnail_img ='backend/upload/news/'. $filename;
         }
 
         $new->save();
@@ -198,5 +205,24 @@ class NewsController extends Controller
             return response()->json(['messsage' => 'success'], 200);
         }
         return response()->json(['messsage' => 'error'], 402);
+    }
+
+    public function changeNewsStatus(Request $request)
+    {
+        $id = $request->id;
+        $status = $request->status;
+
+
+        if ($status == 1) {
+            $stat = 0;
+        } else {
+            $stat = 1;
+        }
+
+        $news = CampusNew::findOrFail($id);
+        $news->status = $stat;
+        $news->save();
+
+        return response()->json(['message' => 'success', 'status' => $stat, 'id' => $id]);
     }
 }

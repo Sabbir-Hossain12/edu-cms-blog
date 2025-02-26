@@ -15,15 +15,13 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Campus News</h4>
-
+                <h4 class="mb-sm-0 font-size-18">Academic Categories</h4>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
-                        <li class="breadcrumb-item active">Campus News</li>
+                        <li class="breadcrumb-item active">Academic Categories</li>
                     </ol>
                 </div>
-
             </div>
         </div>
     </div>
@@ -36,7 +34,7 @@
                 <div class="card-header">
 
                     <div class="d-flex justify-content-between align-items-center">
-                        <h4 class="card-title">Campus News List</h4>
+                        <h4 class="card-title">Academic Categories List</h4>
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createAdminModal">
                                 Add News
                             </button>
@@ -78,7 +76,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Create Admin</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add Academics Category</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -86,11 +84,11 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label for="title" class="col-form-label">Title *</label>
+                            <label for="title" class="col-form-label">Category Title *</label>
                             <input type="text" class="form-control" id="title" name="title" required>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="col-form-label">News Thumbnail (1500 × 1000 px) *</label>
+                            <label for="email" class="col-form-label">Category Thumbnail (2048 × 1366 px) *</label>
                             <input type="file" class="form-control" id="thumbnail_img" name="thumbnail_img" required>
                         </div>
                         <div class="mb-3">
@@ -104,23 +102,14 @@
                         </div>
                         
                         <div class="mb-3">
-                            <label for="long_desc" class="col-form-label">Long Description *</label>
+                            <label for="long_desc" class="col-form-label">Long Description</label>
                             <textarea type="text" class="form-control" name="long_desc" id="long_desc"></textarea>
                         </div>
+                        
 
                         <div class="mb-3">
-                            <label for="video_thumbnail_img" class="col-form-label">Video Thumbnail</label>
-                            <input type="file" class="form-control" id="video_thumbnail_img" name="video_thumbnail_img">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="video_link" class="col-form-label">Video Link</label>
-                            <input type="text" class="form-control" id="video_link" name="video_link" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="category_name" class="col-form-label">Category Name</label>
-                            <input type="text" class="form-control" id="category_name" name="category_name" required>
+                            <label for="link" class="col-form-label">Link</label>
+                            <input type="text" class="form-control" id="link" name="link" required>
                         </div>
                         
                         <div class="mb-3">
@@ -160,8 +149,8 @@
                             <input type="text" class="form-control" id="etitle" name="title" required>
                         </div>
                         <div class="mb-3">
-                            <label for="ethumbnail_img" class="col-form-label">News Thumbnail (1500 × 1000 px) *</label>
-                            <input type="file" class="form-control" id="ethumbnail_img" name="thumbnail_img" required>
+                            <label for="ethumbnail_img" class="col-form-label">Category Thumbnail (2048 × 1366 px) *</label>
+                            <input type="file" class="form-control" id="ethumbnail_img" name="thumbnail_img">
                             <div id="thumbnailPreview">
 
                             </div>
@@ -186,23 +175,10 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="evideo_thumbnail_img" class="col-form-label">Video Thumbnail</label>
-                            <input type="file" class="form-control" id="evideo_thumbnail_img" name="video_thumbnail_img">
-                            <div id="videoThumbnailPreview">
-                                
-                            </div>
+                            <label for="link" class="col-form-label">Video Link</label>
+                            <input type="text" class="form-control" id="elink" name="link" required>
                         </div>
-
-                        <div class="mb-3">
-                            <label for="evideo_link" class="col-form-label">Video Link</label>
-                            <input type="text" class="form-control" id="evideo_link" name="video_link" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="ecategory_name" class="col-form-label">Category Name</label>
-                            <input type="text" class="form-control" id="ecategory_name" name="category_name" required>
-                        </div>
-
+                        
                         <div class="mb-3">
                             <label for="estatus" class="col-form-label">Status</label>
                             <select name="status" id="estatus" class="form-control d-block">
@@ -284,7 +260,7 @@
                 processing: true,
                 serverSide: true,
                 {{--ajax: "{{url('/admin/data')}}",--}}
-                ajax: "{{route('admin.news.index')}}",
+                ajax: "{{route('admin.academic-categories.index')}}",
                 // pageLength: 30,
 
                 columns: [
@@ -335,7 +311,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: "{{ route('admin.news.store') }}",
+                    url: "{{ route('admin.academic-categories.store') }}",
                     data: formData,
                     processData: false,  // Prevent jQuery from processing the data
                     contentType: false,  // Prevent jQuery from setting contentType
@@ -346,7 +322,7 @@
                             adminTable.ajax.reload()
                             swal.fire({
                                 title: "Success",
-                                text: "News Added !",
+                                text: "Academics Category Added !",
                                 icon: "success"
                             })
 
@@ -376,7 +352,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: "{{ url('admin/news') }}/" + id + "/edit",
+                        url: "{{ url('admin/academic-categories') }}/" + id + "/edit",
                         data: {
                             id: id
                         },
@@ -390,7 +366,7 @@
 
                             jReq2.setData(res.data.long_desc);
                             // $('#elong_desc').val(res.data.long_desc);
-                            $('#evideo_link').val(res.data.video_link);
+                            $('#elink').val(res.data.link);
                             $('#ecategory_name').val(res.data.category_name);
                             $('#estatus').val(res.data.status);
                             
@@ -426,7 +402,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: "{{ url('admin/news') }}/" + id,
+                    url: "{{ url('admin/academic-categories') }}/" + id,
                     data: formData,
                     processData: false,  // Prevent jQuery from processing the data
                     contentType: false,  // Prevent jQuery from setting contentType
@@ -437,7 +413,7 @@
                             adminTable.ajax.reload()
                             swal.fire({
                                 title: "Success",
-                                text: "News Edited !",
+                                text: "Academics Category Edited !",
                                 icon: "success"
                             })
 
@@ -477,7 +453,7 @@
                             $.ajax({
                                 type: 'DELETE',
 
-                                url: "{{ url('admin/news') }}/" + id,
+                                url: "{{ url('admin/academic-categories') }}/" + id,
                                 data: {
                                     '_token': token
                                 },
@@ -513,7 +489,7 @@
                 $.ajax(
                     {
                         type: 'post',
-                        url: "{{route('admin.news.status')}}",
+                        url: "{{route('admin.academic-categories.status')}}",
                         data: {
                             '_token': token,
                             id: id,
