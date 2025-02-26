@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\CampusLife\CampusLifeController;
 use App\Http\Controllers\Backend\Dashboard\DashboardController;
 use App\Http\Controllers\Backend\Event\EventController;
 use App\Http\Controllers\Backend\Faculty\FacultyController;
+use App\Http\Controllers\Backend\HealthCare\HealthCareCategoriesController;
 use App\Http\Controllers\Backend\HealthCare\HealthCareController;
 use App\Http\Controllers\Backend\News\NewsController;
 use App\Http\Controllers\Backend\Page\PageController;
@@ -84,12 +85,18 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/academics', AcademicsController::class )->names('admin.academics');
     Route::resource('/academic-categories', AcademicsCategoryController::class )->names('admin.academic-categories');
     Route::post('/academics-category-change-status',[AcademicsCategoryController::class,'changeAcademicCategoryStatus'])->name('admin.academic-categories.status');
-
+    
     //______Events___________//
     Route::resource('/events', EventController::class)->names('admin.events');
     Route::post('/events-change-status',[EventController::class,'changeEventStatus'])->name('admin.events.status');
 
-    //_______School___________//
+    //______Health Care______//
+    Route::resource('/health-cares', HealthCareController::class)->names('admin.health_cares');
+
+    //________Health Care Categories______//
+    Route::resource('/health-cares-categories', HealthCareCategoriesController::class)->names('admin.health-categories');
+    
+    //________School___________//
     Route::resource('/schools', SchoolController::class)->names('admin.schools');
     
     //________Faculties_______//
@@ -97,11 +104,6 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     
     //______ Research _______//
     Route::resource('/researches', ResearchController::class)->names('admin.researches');
-    
-
-    
-    //______Health Care______//
-    Route::resource('/health_cares', HealthCareController::class)->names('admin.health_cares');
     
     //______Students_________//
     Route::resource('/students', StudentController::class)->names('admin.students');

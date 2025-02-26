@@ -105,7 +105,22 @@
                     </ul>
                 </li>
                 
+                {{-- Health Care--}}
+                <li class="">
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa-solid fa-home"></i>
+                        <span data-key="t-dashboard">Health Care</span>
+                    </a>
 
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{route('admin.health-categories.index')}}">
+                                <span data-key="t-calendar">Health Care Categories</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="fa-solid fa-gear"></i>

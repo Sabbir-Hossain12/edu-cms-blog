@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('short_desc')->nullable();
             $table->text('long_desc')->nullable();
+            $table->string('type');
             $table->string('link')->nullable();
             $table->tinyInteger('status')->default(1)->comment('1=active, 0=inactive');
             $table->timestamps();
