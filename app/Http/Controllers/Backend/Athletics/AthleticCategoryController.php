@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Backend\HealthCare;
+namespace App\Http\Controllers\Backend\Athletics;
 
 use App\Http\Controllers\Controller;
-use App\Models\HealthCare;
-use App\Models\HealthCareCategory;
+use App\Models\AthleticCategory;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class HealthCareCategoriesController extends Controller
+class AthleticCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,55 +15,54 @@ class HealthCareCategoriesController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $categories = HealthCareCategory::all();
+        $categories = AthleticCategory::all();
 
 
-            return DataTables::of($categories)
-                ->addColumn('status', function ($category) {
+        return DataTables::of($categories)
+            ->addColumn('status', function ($category) {
 
 
-                    if ($category->status == 1) {
-                        return ' <a class="status" id="adminStatus" href="javascript:void(0)"
+                if ($category->status == 1) {
+                    return ' <a class="status" id="adminStatus" href="javascript:void(0)"
                                                data-id="'.$category->id.'" data-status="'.$category->status.'"> <i
                                                         class="fa-solid fa-toggle-on fa-2x"></i>
                                             </a>';
-                    } else {
-                        return '<a class="status" id="adminStatus" href="javascript:void(0)"
+                } else {
+                    return '<a class="status" id="adminStatus" href="javascript:void(0)"
                                                data-id="'.$category->id.'" data-status="'.$category->status.'"> <i
                                                         class="fa-solid fa-toggle-off fa-2x" style="color: grey"></i>
                                             </a>';
-                    }
+                }
 
 
-                })
+            })
 
-                ->addColumn('action', function ($category) {
+            ->addColumn('action', function ($category) {
 
-                    $editAction = '';
-                    $deleteAction = '';
+                $editAction = '';
+                $deleteAction = '';
 
-                    $editAction= '<a class="editButton btn btn-sm btn-primary" href="javascript:void(0)"
+                $editAction= '<a class="editButton btn btn-sm btn-primary" href="javascript:void(0)"
                                     data-id="'.$category->id.'" data-bs-toggle="modal" data-bs-target="#editAdminModal">
                                     <i class="fas fa-edit"></i></a>';
 
 
 
-                    $deleteAction= '<a class="btn btn-sm btn-danger" href="javascript:void(0)"
+                $deleteAction= '<a class="btn btn-sm btn-danger" href="javascript:void(0)"
                                     data-id="'.$category->id.'" id="deleteAdminBtn""> 
                                     <i class="fas fa-trash"></i></a>';
 
 
 
-                    return '<div class="d-flex gap-3"> '.$editAction.$deleteAction.'</div>';
+                return '<div class="d-flex gap-3"> '.$editAction.$deleteAction.'</div>';
 
 
-                })
-                ->rawColumns(['action', 'status'])
-                ->make(true);
+            })
+            ->rawColumns(['action', 'status'])
+            ->make(true);
 
-        }
-        
-        return view('backend.pages.health_care_categories.index');
+    }
+        return view('backend.pages.athletics_category.index');
     }
 
     /**
@@ -80,8 +78,7 @@ class HealthCareCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $category = new HealthCareCategory();
+        $category = new AthleticCategory();
         $category->title = $request->title;
         $category->short_desc = $request->short_desc;
         $category->long_desc = $request->long_desc;
@@ -92,12 +89,12 @@ class HealthCareCategoriesController extends Controller
         if ($request->hasFile('thumbnail_img')) {
             $file = $request->file('thumbnail_img');
             $filename = time() .uniqid(). '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('backend/upload/health/'), $filename);
-            $category->thumbnail_img ='backend/upload/health/'. $filename;
+            $file->move(public_path('backend/upload/athletics/'), $filename);
+            $category->thumbnail_img ='backend/upload/athletics/'. $filename;
         }
-        
+
         $category->save();
-        
+
         return response()->json(['message' => 'success'], 201);
     }
 
@@ -114,7 +111,7 @@ class HealthCareCategoriesController extends Controller
      */
     public function edit(string $id)
     {
-        $new = HealthCareCategory::find($id);
+        $new = AthleticCategory::find($id);
         if ($new) {
             return response()->json(['message' => 'success', 'data' => $new], 200);
         }
@@ -127,7 +124,7 @@ class HealthCareCategoriesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $category = HealthCareCategory::find($id);
+        $category = AthleticCategory::find($id);
         $category->title = $request->title;
         $category->short_desc = $request->short_desc;
         $category->long_desc = $request->long_desc;
@@ -141,11 +138,11 @@ class HealthCareCategoriesController extends Controller
             {
                 unlink(public_path($category->thumbnail_img));
             }
-            
+
             $file = $request->file('thumbnail_img');
             $filename = time() .uniqid(). '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('backend/upload/health/'), $filename);
-            $category->thumbnail_img ='backend/upload/health/'. $filename;
+            $file->move(public_path('backend/upload/athletics/'), $filename);
+            $category->thumbnail_img ='backend/upload/athletics/'. $filename;
         }
 
         $category->save();
@@ -156,9 +153,10 @@ class HealthCareCategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    
     public function destroy(string $id)
     {
-        $news = HealthCareCategory::findOrFail($id);
+        $news = AthleticCategory::findOrFail($id);
 
         if ($news) {
             $news->delete();
@@ -167,8 +165,7 @@ class HealthCareCategoriesController extends Controller
         }
         return response()->json(['messsage' => 'error'], 402);
     }
-
-    public function changeHealthCategoryStatus(Request $request)
+    public function changeAthleticsCategoryStatus(Request $request)
     {
         $id = $request->id;
         $status = $request->status;
@@ -180,7 +177,7 @@ class HealthCareCategoriesController extends Controller
             $stat = 1;
         }
 
-        $news = HealthCareCategory::findOrFail($id);
+        $news = AthleticCategory::findOrFail($id);
         $news->status = $stat;
         $news->save();
 

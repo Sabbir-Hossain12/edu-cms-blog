@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Admission;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admission;
 use Illuminate\Http\Request;
 
 class AdmissionController extends Controller
@@ -12,7 +13,9 @@ class AdmissionController extends Controller
      */
     public function index()
     {
-        //
+        $admission = Admission::first();
+        
+        return view('backend.pages.admission.index',compact('admission'));
     }
 
     /**
@@ -28,7 +31,15 @@ class AdmissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $admission = new Admission();
+        $admission->title1 = $request->title1;
+        $admission->desc1 = $request->desc1;
+
+        $admission->title2 = $request->title2;
+        $admission->desc2 = $request->desc2;
+
+        $admission->title1 = $request->title;
+        $admission->desc1 = $request->desc1;
     }
 
     /**

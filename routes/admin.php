@@ -7,9 +7,11 @@ use App\Http\Controllers\Backend\Academics\AcademicsCategoryController;
 use App\Http\Controllers\Backend\Academics\AcademicsController;
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admission\AdmissionController;
+use App\Http\Controllers\Backend\Athletics\AthleticCategoryController;
 use App\Http\Controllers\Backend\Athletics\AthleticsController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\Auth\RegisterController;
+use App\Http\Controllers\Backend\CampusLife\CampusLifeCategoryController;
 use App\Http\Controllers\Backend\CampusLife\CampusLifeController;
 use App\Http\Controllers\Backend\Dashboard\DashboardController;
 use App\Http\Controllers\Backend\Event\EventController;
@@ -95,7 +97,19 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
     //________Health Care Categories______//
     Route::resource('/health-cares-categories', HealthCareCategoriesController::class)->names('admin.health-categories');
+    Route::post('/health-categories-change-status',[HealthCareCategoriesController::class,'changeHealthCategoryStatus'])->name('admin.health-categories.status');
+
+    //_______Campus Life Categories_______//
+    Route::resource('/campus-life-categories', CampusLifeCategoryController::class)->names('admin.campus-life-categories');
+    Route::post('/campus-life-categories-change-status',[CampusLifeCategoryController::class,'changeCampusLifeCategoryStatus'])->name('admin.campus-life-categories.status');
     
+    //_______Athletics Categories_______//
+    Route::resource('/athletic-categories', AthleticCategoryController::class)->names('admin.athletic-categories');
+    Route::post('/athletic-categories-change-status',[AthleticCategoryController::class,'changeAthleticsCategoryStatus'])->name('admin.athletic-categories.status');
+
+    //_______Admission_______//
+    Route::resource('/admissions', AdmissionController::class)->names('admin.admissions');
+
     //________School___________//
     Route::resource('/schools', SchoolController::class)->names('admin.schools');
     
@@ -114,9 +128,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     //_______Athletics_______//
     Route::resource('/athletics', AthleticsController::class)->names('admin.athletics');
     
-    //_______Admission_______//
-    Route::resource('/admissions', AdmissionController::class)->names('admin.admissions');
-    
+
     //______ Settings _____//
     Route::resource('/settings', SettingController::class)->names('admin.settings');
     

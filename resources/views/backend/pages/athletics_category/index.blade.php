@@ -15,11 +15,11 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Health Care Categories</h4>
+                <h4 class="mb-sm-0 font-size-18">Athletics Categories</h4>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
-                        <li class="breadcrumb-item active">Health Care Categories</li>
+                        <li class="breadcrumb-item active">Athletics Categories</li>
                     </ol>
                 </div>
             </div>
@@ -34,9 +34,9 @@
                 <div class="card-header">
 
                     <div class="d-flex justify-content-between align-items-center">
-                        <h4 class="card-title">Health Care Categories List</h4>
+                        <h4 class="card-title">Athletics Categories List</h4>
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createAdminModal">
-                                Add Health Care Categories
+                                Add Athletics Categories
                             </button>
                     </div>
 
@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="type" class="col-form-label">Health Care Type *</label>
+                            <label for="type" class="col-form-label">Athletics Type *</label>
                             <input type="text" class="form-control" id="type" name="type" required>
                         </div>
                         
@@ -170,7 +170,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="etype" class="col-form-label">Health Care Type *</label>
+                            <label for="etype" class="col-form-label">Athletics Type *</label>
                             <input type="text" class="form-control" id="etype" name="type" required>
                         </div>
 
@@ -261,7 +261,7 @@
                 processing: true,
                 serverSide: true,
                 {{--ajax: "{{url('/admin/data')}}",--}}
-                ajax: "{{ route('admin.health-categories.index') }}",
+                ajax: "{{ route('admin.athletic-categories.index') }}",
                 // pageLength: 30,
 
                 columns: [
@@ -312,7 +312,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: "{{ route('admin.health-categories.store') }}",
+                    url: "{{ route('admin.athletic-categories.store') }}",
                     data: formData,
                     processData: false,  // Prevent jQuery from processing the data
                     contentType: false,  // Prevent jQuery from setting contentType
@@ -323,7 +323,7 @@
                             adminTable.ajax.reload()
                             swal.fire({
                                 title: "Success",
-                                text: "Health Care Category Added !",
+                                text: "Athletics Category Added !",
                                 icon: "success"
                             })
 
@@ -353,7 +353,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: "{{ url('admin/health-cares-categories') }}/" + id + "/edit",
+                        url: "{{ url('admin/athletic-categories') }}/" + id + "/edit",
                         data: {
                             id: id
                         },
@@ -405,7 +405,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: "{{ url('admin/health-cares-categories') }}/" + id,
+                    url: "{{ url('admin/athletic-categories') }}/" + id,
                     data: formData,
                     processData: false,  // Prevent jQuery from processing the data
                     contentType: false,  // Prevent jQuery from setting contentType
@@ -416,7 +416,7 @@
                             adminTable.ajax.reload()
                             swal.fire({
                                 title: "Success",
-                                text: "Health Care Updated !",
+                                text: "Athletics Updated !",
                                 icon: "success"
                             })
 
@@ -456,14 +456,14 @@
                             $.ajax({
                                 type: 'DELETE',
 
-                                url: "{{ url('admin/health-cares-categories') }}/" + id,
+                                url: "{{ url('admin/athletic-categories') }}/" + id,
                                 data: {
                                     '_token': token
                                 },
                                 success: function (res) {
                                     Swal.fire({
                                         title: "Deleted!",
-                                        text: "Health Care Categories has been deleted.",
+                                        text: "Athletics Categories has been deleted.",
                                         icon: "success"
                                     });
 
@@ -492,7 +492,7 @@
                 $.ajax(
                     {
                         type: 'post',
-                        url: "{{route('admin.health-categories.status')}}",
+                        url: "{{route('admin.athletic-categories.status')}}",
                         data: {
                             '_token': token,
                             id: id,

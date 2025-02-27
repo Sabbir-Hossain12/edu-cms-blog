@@ -30,7 +30,7 @@
                 {{--About--}}
                 <li class="">
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="fa-solid fa-home"></i>
+                        <i class="fa-solid fa-address-card"></i>
                         <span data-key="t-dashboard">About Section</span>
                     </a>
 
@@ -49,7 +49,7 @@
 
                 <li class="">
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="fa-solid fa-home"></i>
+                        <i class="fa-solid fa-newspaper"></i>
                         <span data-key="t-dashboard">Campus News</span>
                     </a>
 
@@ -67,7 +67,7 @@
 
                 <li class="">
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="fa-solid fa-home"></i>
+                        <i class="fa-solid fa-school"></i>
                         <span data-key="t-dashboard">Academics</span>
                     </a>
 
@@ -92,7 +92,7 @@
                 {{--  Events  --}}
                 <li class="">
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="fa-solid fa-home"></i>
+                        <i class="fa-solid fa-calendar-day"></i>
                         <span data-key="t-dashboard">Events</span>
                     </a>
 
@@ -108,7 +108,7 @@
                 {{-- Health Care--}}
                 <li class="">
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="fa-solid fa-home"></i>
+                        <i class="fa-solid fa-notes-medical"></i>
                         <span data-key="t-dashboard">Health Care</span>
                     </a>
 
@@ -116,6 +116,37 @@
                         <li>
                             <a href="{{route('admin.health-categories.index')}}">
                                 <span data-key="t-calendar">Health Care Categories</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{-- Campus Life --}}
+                <li class="">
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa-solid fa-heart"></i>
+                        <span data-key="t-dashboard">Campus Life</span>
+                    </a>
+
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{route('admin.campus-life-categories.index')}}">
+                                <span data-key="t-calendar">Campus Life Categories</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{-- Athletics --}}
+                <li class="">
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa-solid fa-baseball-ball"></i>
+                        <span data-key="t-dashboard">Athletics</span>
+                    </a>
+
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{route('admin.athletic-categories.index')}}">
+                                <span data-key="t-calendar">Athletics Categories</span>
                             </a>
                         </li>
                     </ul>

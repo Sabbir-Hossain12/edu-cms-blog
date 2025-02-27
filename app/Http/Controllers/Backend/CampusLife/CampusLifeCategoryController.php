@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Backend\HealthCare;
+namespace App\Http\Controllers\Backend\CampusLife;
 
 use App\Http\Controllers\Controller;
-use App\Models\HealthCare;
-use App\Models\HealthCareCategory;
+use App\Models\CampusLifeCategory;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class HealthCareCategoriesController extends Controller
+class CampusLifeCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class HealthCareCategoriesController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $categories = HealthCareCategory::all();
+            $categories = CampusLifeCategory::all();
 
 
             return DataTables::of($categories)
@@ -63,8 +62,7 @@ class HealthCareCategoriesController extends Controller
                 ->make(true);
 
         }
-        
-        return view('backend.pages.health_care_categories.index');
+        return view('backend.pages.campus_life_category.index');
     }
 
     /**
@@ -80,8 +78,7 @@ class HealthCareCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $category = new HealthCareCategory();
+        $category = new CampusLifeCategory();
         $category->title = $request->title;
         $category->short_desc = $request->short_desc;
         $category->long_desc = $request->long_desc;
@@ -92,12 +89,12 @@ class HealthCareCategoriesController extends Controller
         if ($request->hasFile('thumbnail_img')) {
             $file = $request->file('thumbnail_img');
             $filename = time() .uniqid(). '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('backend/upload/health/'), $filename);
-            $category->thumbnail_img ='backend/upload/health/'. $filename;
+            $file->move(public_path('backend/upload/campusLife/'), $filename);
+            $category->thumbnail_img ='backend/upload/campusLife/'. $filename;
         }
-        
+
         $category->save();
-        
+
         return response()->json(['message' => 'success'], 201);
     }
 
@@ -114,7 +111,7 @@ class HealthCareCategoriesController extends Controller
      */
     public function edit(string $id)
     {
-        $new = HealthCareCategory::find($id);
+        $new = CampusLifeCategory::find($id);
         if ($new) {
             return response()->json(['message' => 'success', 'data' => $new], 200);
         }
@@ -127,7 +124,7 @@ class HealthCareCategoriesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $category = HealthCareCategory::find($id);
+        $category = CampusLifeCategory::find($id);
         $category->title = $request->title;
         $category->short_desc = $request->short_desc;
         $category->long_desc = $request->long_desc;
@@ -141,11 +138,11 @@ class HealthCareCategoriesController extends Controller
             {
                 unlink(public_path($category->thumbnail_img));
             }
-            
+
             $file = $request->file('thumbnail_img');
             $filename = time() .uniqid(). '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('backend/upload/health/'), $filename);
-            $category->thumbnail_img ='backend/upload/health/'. $filename;
+            $file->move(public_path('backend/upload/campusLife/'), $filename);
+            $category->thumbnail_img ='backend/upload/campusLife/'. $filename;
         }
 
         $category->save();
@@ -158,7 +155,7 @@ class HealthCareCategoriesController extends Controller
      */
     public function destroy(string $id)
     {
-        $news = HealthCareCategory::findOrFail($id);
+        $news = CampusLifeCategory::findOrFail($id);
 
         if ($news) {
             $news->delete();
@@ -168,7 +165,8 @@ class HealthCareCategoriesController extends Controller
         return response()->json(['messsage' => 'error'], 402);
     }
 
-    public function changeHealthCategoryStatus(Request $request)
+
+    public function changeCampusLifeCategoryStatus(Request $request)
     {
         $id = $request->id;
         $status = $request->status;
@@ -180,7 +178,7 @@ class HealthCareCategoriesController extends Controller
             $stat = 1;
         }
 
-        $news = HealthCareCategory::findOrFail($id);
+        $news = CampusLifeCategory::findOrFail($id);
         $news->status = $stat;
         $news->save();
 
